@@ -18,7 +18,7 @@
 .navigation{
     position: absolute;
     display: grid;
-    top: 30%;
+    top: 40%;
 }
 
 .Btn{
@@ -30,3 +30,36 @@
     border-width: 0;
     border-bottom: 1px solid black;
 }
+
+.dot {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    border-radius: 50%;
+    /* border-style: solid; */
+    display: inline-block;
+    /* border-color: black; */
+    /* border-width: .1px; */
+    top: 10px;
+    left: 10px;
+    background-image:url(download.png);
+    background-repeat: no-repeat;
+    /* background-position: fixed; */
+    background-attachment: fixed;
+    /* background-position: center; */
+    background-position-x: -4px;
+  }
+  
+.logout{
+        position: absolute;
+        top: 95%;
+        left:10%;
+        border: none;
+        background-color: #d8f3dc;
+}
+h1{
+    position:absolute;
+    left: 150px;
+    top: 40px;
+    font-size: 20px;
+  } 
