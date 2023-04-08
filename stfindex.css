@@ -4,7 +4,6 @@
     box-sizing: border-box;
     font-family:'Times New Roman', Times, serif;
 }
-
 .left-container{
     /* display: flex; */
     /* border: 1px solid #faedcd; */
@@ -14,13 +13,11 @@
     height: 100vh;
     position: relative;
 }
-
 .navigation{
     position: absolute;
     display: grid;
     top: 40%;
 }
-
 .Btn{
     background-color: #c7f9cc;
     font-size: 30px;
@@ -30,7 +27,6 @@
     border-width: 0;
     border-bottom: 1px solid black;
 }
-
 .dot {
     height: 100px;
     width: 100px;
@@ -49,7 +45,6 @@
     /* background-position: center; */
     background-position-x: -4px;
   }
-  
 .logout{
         position: absolute;
         top: 95%;
