@@ -42,13 +42,21 @@
     top: 40%;
 }
 .navigation button{
-    background-color: #c7f9cc;
+    /* background-color: #c7f9cc;
     font-size: 30px;
     width: 27vw;
     border-radius: 10px;
     margin-bottom: 1px;
     border-width: 0;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid black; */
+    margin: 0;
+    background: none;
+    border: 1px solid #fff;
+    width: 27vw;
+    border-radius: 10px;
+    /* height: 41px; */
+    /* font-weight: 600; */
+    font-size: 30px;
 }
 .dot {
     height: 100px;
