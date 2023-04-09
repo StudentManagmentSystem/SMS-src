@@ -12,16 +12,49 @@ const firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig);
   const database=firebase.database().ref("databasestore");
-  document.querySelector('.logout').addEventListener('click',function(){
-    console.log("Hi");
-  var push=database.push();
-  push.set({
-    name:"tamil",
-  })
-});
 
-database.on("value", function(snapshot){
-    snapshot.forEach(element => {
-        console.log(element.val());
-    });
+let per_details = [];
+let value;
+database.on("value",function(snapshot){
+  snapshot.forEach(element => {
+    value = {
+      personal_detail : element.val()
+    }
+    per_details.push(value);
+  });
 })
+
+console.log(per_details);
+
+document.querySelector('.personalsubmit').addEventListener('click', function(){
+  let details = {};
+
+  let detail;
+  details.firstname = document.querySelector('.fname').value;
+  details.email = document.querySelector('.email').value;
+  details.phno = document.querySelector('.phno').value;
+  details.dob = document.querySelector('.dob').value;
+  details.address = document.querySelector('.address').value;
+  details.city = document.querySelector('.city').value;
+  details.pincode = document.querySelector('.pincode').value;
+  details.state = document.querySelector('.state').value;
+  details.country = document.querySelector('.country').value;
+
+  let count = 0;
+  for(let i = 0;i<per_details.length;i++){
+    if(per_details[i].personal_detail.personal_detail.firstname === details.firstname){
+      alert("already registered!");
+      count++;
+      break;
+    }
+  }
+  if(count === 0){
+    per_details.push(details);
+    var push = database.push();
+    push.set({
+    personal_detail : details
+  });
+  alert("Successfully updated");
+}
+
+});
