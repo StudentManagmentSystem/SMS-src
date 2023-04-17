@@ -1,1 +1,2 @@
-console.log(window)
+
+    window.open("stdpersonald.html")
