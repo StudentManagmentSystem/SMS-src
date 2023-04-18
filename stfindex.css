@@ -6,6 +6,13 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+body{
+  background-image: url(img/staff.jpg);
+  background-repeat: no-repeat;
+  position: fixed;
+  display: flex;
+  background-size:95%;  
+}
 .left-container{
     /* display: flex; */
     /* border: 1px solid #faedcd; */
