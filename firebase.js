@@ -56,5 +56,24 @@ document.querySelector('.personalsubmit').addEventListener('click', function(){
   });
   alert("Successfully updated");
 }
-
 });
+
+let loginDetails = {};
+
+
+document.querySelector('.stdsubmitlogin').addEventListener('click', function(){
+
+  let stdemail = document.querySelector('.stdemail').value;
+  let stdpassword = document.querySelector('.stdpassword').value;
+
+  // console.log(email+" Hi");
+  if(email === ""){
+    alert('please enter your email id');
+  }
+  else if(password === ""){
+    alert("please enter password");
+  }
+  else{
+      
+  }
+})

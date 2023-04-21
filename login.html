@@ -9,6 +9,8 @@
     ></script>
     <link rel="stylesheet" href="login.css" />
     <title>Sign in & Sign up Form</title>
+    <script type="module" src= "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js"></script>
   </head>
   <body>
     <div class="container">
@@ -16,39 +18,20 @@
         <div class="signin-signup">
           <form action="#" class="sign-in-form">
             <h1>STUDENT</h1>
-            <h2 class="title">Sign in</h2>
+            <h2 class="title">sign In</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" placeholder="Email" class="stdemail"/>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" class="stdpassword"/>
             </div>
-            <input type="submit" value="Login" class="btn solid" />
-            <!-- <p class="social-text">Or Sign in with social platforms</p> -->
-            <!-- <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div> -->
+            <button class="btn solid stdsubmitlogin">student login</button>
           </form>
           <form action="#" class="sign-up-form">
             <h1>Staff</h1>
-            <h2 class="title">Sign up</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
-            </div>
+            <h2 class="title">sign In</h2>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
               <input type="email" placeholder="Email" />
@@ -57,22 +40,7 @@
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Password" />
             </div>
-            <input type="submit" class="btn" value="Sign up" />
-            <!-- <p class="social-text">Or Sign up with social platforms</p> -->
-            <!-- <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div> -->
+            <input type="submit" class="btn" value="login" />
           </form>
         </div>
       </div>
@@ -81,12 +49,10 @@
           <div class="content">
             <h3>Staff</h3>
             <p>
-              <!-- Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-              ex ratione. Aliquid! -->
               Sign in as Staff
             </p>
             <button class="btn transparent" id="sign-up-btn">
-              <!-- Sign up -->Sign In
+              Sign In
             </button>
           </div>
           <img src="img/log.svg" class="image" alt="" />
@@ -95,8 +61,6 @@
           <div class="content">
             <h3>Student</h3>
             <p>
-              <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              laboriosam ad deleniti. -->
               Sign In as Student
             </p>
             <button class="btn transparent" id="sign-in-btn">
@@ -107,7 +71,8 @@
         </div>
       </div>
     </div>
-
     <script src="login.js"></script>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+  <script src="firebase.js"></script>
 </html>
