@@ -22,7 +22,7 @@ database.on("value",function(snapshot){
     }
     per_details.push(value);
   });
-})
+});
 
 console.log(per_details);
 
@@ -43,29 +43,36 @@ document.querySelector('.personalsubmit').addEventListener('click', function(){
 
   let count = 0;
   for(let i = 0;i<per_details.length;i++){
-    if(per_details[i].personal_detail.personal_detail.email === details.email){
-      count++;
-      var objectRef = firebase.database().ref(`databasestore/${i}/personal_detail`);
-      objectRef.update({
-        personal_detail : details
-      });
-    break;
+    if(per_details.personal_detail.personal_detail.email === details.email){
+      alert("Already updated");
+    }
+    else{
+      
     }
   }
-  if(count === 0){
-    alert("Invalid mail Id/details");
-  }
 
-  // per_details.push(details);
-  //     var push = database.push();
-  //     push.set({
-  //     personal_detail : details
-  //   });
-  // if(count === 0){
-  //   per_details.push(details);
-  //   var push = database.push();
-  //   push.set({
-  //   personal_detail : details
+
+  // let value1;
+  // database.on("value",function(snapshot){
+  // snapshot.forEach(element => {
+  //   value1 = {
+  //     personal_detail : element.val()
+  //   }
+  //   console.log(value1.personal_detail.personal_detail.email);
+  //   if(value1.personal_detail.personal_detail.email === details.email){
+  //     var objectRef = firebase.database().ref(`databasestore/value1/personal_detail/personal_detail`);
+  //     objectRef.update({
+  //       firstname : document.querySelector('.fname').value,
+  //       email : document.querySelector('.email').value,
+  //       phno : document.querySelector('.phno').value,
+  //       dob : document.querySelector('.dob').value,
+  //       address : document.querySelector('.address').value,
+  //       city : document.querySelector('.city').value,
+  //       pincode : document.querySelector('.pincode').value,
+  //       state : document.querySelector('.state').value,
+  //       country : document.querySelector('.country').value
+  //     });
+  //   }
   // });
-  // alert("Successfully updated");
+// }); 
 });
