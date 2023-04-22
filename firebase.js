@@ -31,6 +31,7 @@ document.querySelector('.personalsubmit').addEventListener('click', function(){
 
   let detail;
   details.firstname = document.querySelector('.fname').value;
+  // let email = document.querySelector('.email').value;
   details.email = document.querySelector('.email').value;
   details.phno = document.querySelector('.phno').value;
   details.dob = document.querySelector('.dob').value;
@@ -42,38 +43,29 @@ document.querySelector('.personalsubmit').addEventListener('click', function(){
 
   let count = 0;
   for(let i = 0;i<per_details.length;i++){
-    if(per_details[i].personal_detail.personal_detail.firstname === details.firstname){
-      alert("already registered!");
+    if(per_details[i].personal_detail.personal_detail.email === details.email){
       count++;
-      break;
+      var objectRef = firebase.database().ref(`databasestore/${i}/personal_detail`);
+      objectRef.update({
+        personal_detail : details
+      });
+    break;
     }
   }
   if(count === 0){
-    per_details.push(details);
-    var push = database.push();
-    push.set({
-    personal_detail : details
-  });
-  alert("Successfully updated");
-}
+    alert("Invalid mail Id/details");
+  }
+
+  // per_details.push(details);
+  //     var push = database.push();
+  //     push.set({
+  //     personal_detail : details
+  //   });
+  // if(count === 0){
+  //   per_details.push(details);
+  //   var push = database.push();
+  //   push.set({
+  //   personal_detail : details
+  // });
+  // alert("Successfully updated");
 });
-
-let loginDetails = {};
-
-
-document.querySelector('.stdsubmitlogin').addEventListener('click', function(){
-
-  let stdemail = document.querySelector('.stdemail').value;
-  let stdpassword = document.querySelector('.stdpassword').value;
-
-  // console.log(email+" Hi");
-  if(email === ""){
-    alert('please enter your email id');
-  }
-  else if(password === ""){
-    alert("please enter password");
-  }
-  else{
-      
-  }
-})

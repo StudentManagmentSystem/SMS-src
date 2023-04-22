@@ -16,7 +16,32 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="#" class="sign-in-form">
+
+          <!-- Sign In/Sign Up form selection -->
+          <form action="#" class="sign-in-form selection">
+            <h2 class="signinup">Student</h2>
+            <input type="submit" class="btn signinselection" value="Sign In">
+            <input type="submit" class="btn signupselection" value="Sign Up">
+          </form>
+
+          <!-- Sign up form -->
+          <form action="#" class="sign-in-form sign-up hidden">
+            <h1>STUDENT</h1>
+            <h2 class="title">sign up</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Email" class="stdemailup"/>
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" class="stdpasswordup" maxlength="15" minlength="8"/>
+            </div>
+            <input type="submit" class="btn solid std-signup" value="Sign Up">
+          </form>
+
+
+          <!-- Sign in form -->
+          <form action="#" class="sign-in-form sign-in hidden">
             <h1>STUDENT</h1>
             <h2 class="title">sign In</h2>
             <div class="input-field">
@@ -25,9 +50,9 @@
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" class="stdpassword"/>
+              <input type="password" placeholder="Password" class="stdpassword" maxlength="15" minlength="8"/>
             </div>
-            <button class="btn solid stdsubmitlogin">student login</button>
+            <input type="submit" class="btn solid stdsignin" value="Sign In">
           </form>
           <form action="#" class="sign-up-form">
             <h1>Staff</h1>
@@ -74,5 +99,5 @@
     <script src="login.js"></script>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-  <script src="firebase.js"></script>
+  <script src="firebaselogin.js"></script>
 </html>
