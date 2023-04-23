@@ -22,7 +22,8 @@ body{
   background-repeat: no-repeat;
   background-size: 100%; */
 }
-.container{
+
+.container {
     /* width: 30vw;
     height: 100vh; */
     width: 27vw;
@@ -37,6 +38,13 @@ body{
     justify-content: center; */
     position:relative;
 }
+
+.profile p{
+  top: 7%;
+  right: 55%;
+  position: absolute;
+}
+
 .right-container{
   position: absolute;
   display: flex;

@@ -12,10 +12,26 @@ const firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig);
   const database=firebase.database().ref("databasestore");
+  const database1=firebase.database().ref("databasestore1");
 
+//login details array storage
+let loginDetails = [];
+let value1;
+database.on("value",function(snapshot){
+    snapshot.forEach(element => {
+      value = {
+        loginDetail : element.val()
+      }
+      loginDetails.push(value);
+    });
+  })
+console.log(loginDetails);
+
+
+//personal detail array storage
 let per_details = [];
 let value;
-database.on("value",function(snapshot){
+database1.on("value",function(snapshot){
   snapshot.forEach(element => {
     value = {
       personal_detail : element.val()
@@ -23,15 +39,43 @@ database.on("value",function(snapshot){
     per_details.push(value);
   });
 })
-
 console.log(per_details);
 
+
+//sign in authentication
 document.querySelector('.signinselection').addEventListener('click', function(){
 
     document.querySelector('.selection').classList.add('hidden');
     document.querySelector('.sign-in').classList.remove('hidden');
+
+    document.querySelector('.std-signin').addEventListener('click', function(){
+        let emailin = document.querySelector('.stdemail').value;
+        let passwordin = document.querySelector('.stdpassword').value;
+
+        let count = 0;
+        let count1 = 0;
+        for(let i = 0;i<loginDetails.length;i++){
+            if(loginDetails[i].loginDetail.email === emailin){
+                count++;
+            }
+            if(loginDetails[i].loginDetail.password === passwordin){
+                count1++;
+            }
+        }
+        if(count === 0){
+            alert("Enter valid email Id");
+        }
+        else if(count1 === 0){
+            alert("Wrong password");
+        }
+        else{
+            window.open('stdindex.html');
+        }
+    });
 });
 
+
+//signup authentication and registeration
 document.querySelector('.signupselection').addEventListener('click', function(){
 
     document.querySelector('.selection').classList.add('hidden');
@@ -54,20 +98,18 @@ document.querySelector('.signupselection').addEventListener('click', function(){
         }
         else{
             let c = 0;
-            for(let i = 0;i<per_details.length;i++){
-                if(per_details[i].personal_detail.personal_detail.email === emailup){
+            for(let i = 0;i<loginDetails.length;i++){
+                if(loginDetails[i].loginDetail.email === emailup){
                     c++;
                     alert("Already Registered");
+                    break;
                 }
             }
             if(c === 0){
-                let details = {
-                    email:emailup,
-                    password:passwordup
-                };
                 var push = database.push();
                 push.set({
-                personal_detail : details
+                    email:emailup,
+                    password:passwordup
               });
               alert("Successfully Registered");
             }
