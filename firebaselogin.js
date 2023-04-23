@@ -14,6 +14,7 @@ const firebaseConfig = {
   const database=firebase.database().ref("databasestore");
   const database1=firebase.database().ref("databasestore1");
 
+
 //login details array storage
 let loginDetails = [];
 let value1;
@@ -116,8 +117,6 @@ document.querySelector('.signupselection').addEventListener('click', function(){
         }
     });
 });
-
-
 
 
 

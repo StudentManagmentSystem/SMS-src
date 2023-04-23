@@ -41,3 +41,17 @@ database1.on("value",function(snapshot){
 })
 console.log(per_details);
 
+document.querySelector('.std-signin').addEventListener('click', function(){
+    let email = document.querySelector('.email').value;
+
+    for(let i = 0;i<per_details.length;i++){
+        if(per_details[i].email === email){
+            document.querySelector('.stdname').innerHTML = per_details[i].firstname;
+            document.querySelector('.stdemail').innerHTML = per_details[i].email;
+            document.querySelector('.stdphno').innerHTML = per_details[i].phno;
+            document.querySelector('.stdaddress').innerHTML = per_details[i].address;
+            document.querySelector('.stdcity').innerHTML = per_details[i].city;            ;
+            document.querySelector('.stdstate').innerHTML = per_details[i].state;
+        }
+    }
+});
