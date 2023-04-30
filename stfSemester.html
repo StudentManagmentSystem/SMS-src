@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semester</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="stfsemester.css">
+    <script type="module" src= "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js"></script>
 </head>
 <body>
-    
+    <div class="container">
+        <label class="content2">Enter the semester : </label>
+        <input type="text" class="sem">
+        <label class="content1 hidden">Enter course code : </label>
+        <input type="text" class="subcode hidden" placeholder="subject code">
+        <br>
+        <br>
+        <label class="content">Enter total no of subjects : </label>
+        <input type="text" class="semcount">
+        <input type="button" class="sembtn subbtn" value="Next">
+    </div>    
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script src="stfsemester.js"></script>
 </html>
