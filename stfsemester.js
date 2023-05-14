@@ -12,7 +12,7 @@ const firebaseConfig = {
   };
 
   firebase.initializeApp(firebaseConfig);
-  const database=firebase.database().ref("databasestoresemester");
+const database=firebase.database().ref("databasestoresemester");
 
 let totalSub;
 let semesterDetails = [];

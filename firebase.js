@@ -48,6 +48,7 @@ document.querySelector('.personalsubmit').addEventListener('click', function(){
   let details = {};
 
   details.firstname = document.querySelector('.fname').value;
+  details.regno = document.querySelector('.regno').value;
   details.email = document.querySelector('.email').value;
   details.phno = document.querySelector('.phno').value;
   details.dob = document.querySelector('.dob').value;
@@ -69,6 +70,7 @@ document.querySelector('.personalsubmit').addEventListener('click', function(){
     var push = database1.push();
     push.set({
       firstname : document.querySelector('.fname').value,
+      regno : document.querySelector('.regno').value,
       email : document.querySelector('.email').value,
       phno : document.querySelector('.phno').value,
       dob : document.querySelector('.dob').value,
