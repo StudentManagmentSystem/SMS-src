@@ -1,4 +1,5 @@
 'use strict'
+
 const firebaseConfig = {
     apiKey: "AIzaSyBgUx-_SqBtZrSo_RWxnvSf23hT-wPtdYY",
     authDomain: "studentmanagementsystem-fb890.firebaseapp.com",
@@ -14,7 +15,9 @@ const firebaseConfig = {
   const database=firebase.database().ref("databasestore");
   const database1=firebase.database().ref("databasestore1");
 
-//login details array storage
+  localStorage.getItem("regno",regnoup);
+  console.log(regno);
+  //login details array storage
 let loginDetails = [];
 let value1;
 database.on("value",function(snapshot){
@@ -41,17 +44,17 @@ database1.on("value",function(snapshot){
 })
 console.log(per_details);
 
-document.querySelector('.std-signin').addEventListener('click', function(){
-    let email = document.querySelector('.email').value;
+// document.querySelector('.std-signin').addEventListener('click', function(){
+//     let email = document.querySelector('.email').value;
 
-    for(let i = 0;i<per_details.length;i++){
-        if(per_details[i].email === email){
-            document.querySelector('.stdname').innerHTML = per_details[i].firstname;
-            document.querySelector('.stdemail').innerHTML = per_details[i].email;
-            document.querySelector('.stdphno').innerHTML = per_details[i].phno;
-            document.querySelector('.stdaddress').innerHTML = per_details[i].address;
-            document.querySelector('.stdcity').innerHTML = per_details[i].city;            ;
-            document.querySelector('.stdstate').innerHTML = per_details[i].state;
-        }
-    }
-});
+//     for(let i = 0;i<per_details.length;i++){
+//         if(per_details[i].email === email){
+//             document.querySelector('.stdname').innerHTML = per_details[i].firstname;
+//             document.querySelector('.stdemail').innerHTML = per_details[i].email;
+//             document.querySelector('.stdphno').innerHTML = per_details[i].phno;
+//             document.querySelector('.stdaddress').innerHTML = per_details[i].address;
+//             document.querySelector('.stdcity').innerHTML = per_details[i].city;            ;
+//             document.querySelector('.stdstate').innerHTML = per_details[i].state;
+//         }
+//     }
+// });

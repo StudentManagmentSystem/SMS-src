@@ -1,4 +1,6 @@
 'use strict'
+//yashwanthinicse2020@ksrce.ac.in
+//vigneshscse2020@ksrce.ac.in
 const firebaseConfig = {
     apiKey: "AIzaSyBgUx-_SqBtZrSo_RWxnvSf23hT-wPtdYY",
     authDomain: "studentmanagementsystem-fb890.firebaseapp.com",
@@ -52,9 +54,10 @@ document.querySelector('.signinselection').addEventListener('click', function(){
     document.querySelector('.std-signin').addEventListener('click', function(){
         let emailin = document.querySelector('.stdemail').value;
         let passwordin = document.querySelector('.stdpassword').value;
-
+        let regnoin = document.querySelector('.stdregno').value;
         let count = 0;
         let count1 = 0;
+        let count2 = 0;
         for(let i = 0;i<loginDetails.length;i++){
             if(loginDetails[i].loginDetail.email === emailin){
                 count++;
@@ -62,12 +65,18 @@ document.querySelector('.signinselection').addEventListener('click', function(){
             if(loginDetails[i].loginDetail.password === passwordin){
                 count1++;
             }
+            if(loginDetails[i].loginDetail.regno === regnoin){
+                count2++;
+            }
         }
         if(count === 0){
             alert("Enter valid email Id");
         }
         else if(count1 === 0){
             alert("Wrong password");
+        }
+        else if(count2 === 0){
+            alert("invalid Regno");
         }
         else{
             window.open('stdindex.html');
@@ -85,6 +94,7 @@ document.querySelector('.signupselection').addEventListener('click', function(){
     document.querySelector('.std-signup').addEventListener('click', function(){
         let emailup = document.querySelector('.stdemailup').value;
         let passwordup = document.querySelector('.stdpasswordup').value;
+        let regnoup = document.querySelector('.stdregnoup').value;
         let numc = 0;
         for(let i = 0;i<passwordup.length;i++){
             if(passwordup.charAt(i)>='0' && passwordup.charAt(i)<='9'){
@@ -100,7 +110,7 @@ document.querySelector('.signupselection').addEventListener('click', function(){
         else{
             let c = 0;
             for(let i = 0;i<loginDetails.length;i++){
-                if(loginDetails[i].loginDetail.email === emailup){
+                if(loginDetails[i].loginDetail.email === emailup || loginDetails[i].loginDetail.regno === regnoup){
                     c++;
                     alert("Already Registered");
                     break;
@@ -109,9 +119,11 @@ document.querySelector('.signupselection').addEventListener('click', function(){
             if(c === 0){
                 var push = database.push();
                 push.set({
+                    regno:regnoup,
                     email:emailup,
                     password:passwordup
               });
+              localStorage.setItem("regno",regnoup);
               alert("Successfully Registered");
             }
         }
