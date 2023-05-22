@@ -15,8 +15,6 @@ const firebaseConfig = {
   const database=firebase.database().ref("databasestore");
   const database1=firebase.database().ref("databasestore1");
 
-  localStorage.getItem("regno",regnoup);
-  console.log(regno);
   //login details array storage
 let loginDetails = [];
 let value1;
@@ -44,17 +42,21 @@ database1.on("value",function(snapshot){
 })
 console.log(per_details);
 
-// document.querySelector('.std-signin').addEventListener('click', function(){
-//     let email = document.querySelector('.email').value;
-
-//     for(let i = 0;i<per_details.length;i++){
-//         if(per_details[i].email === email){
-//             document.querySelector('.stdname').innerHTML = per_details[i].firstname;
-//             document.querySelector('.stdemail').innerHTML = per_details[i].email;
-//             document.querySelector('.stdphno').innerHTML = per_details[i].phno;
-//             document.querySelector('.stdaddress').innerHTML = per_details[i].address;
-//             document.querySelector('.stdcity').innerHTML = per_details[i].city;            ;
-//             document.querySelector('.stdstate').innerHTML = per_details[i].state;
-//         }
-//     }
-// });
+let regno = localStorage.getItem('regno');
+console.log(regno);
+// console.log(typeof per_details[0].regno);
+// console.log(typeof regno);
+  //  console.log(per_details.length); 
+console.log(per_details[0].personal_detail.regno);
+for(let i = 0;i<per_details.length;i++){
+  console.log(per_details);
+    if(per_details[i].personal_detail.regno == regno){
+      console.log(true);
+        document.querySelector('.stdname').innerHTML = per_details[i].regno;
+        document.querySelector('.stdemail').innerHTML = per_details[i].email;
+        // document.querySelector('.stdphno').innerHTML = per_details[i].phno;
+        // document.querySelector('.stdaddress').innerHTML = per_details[i].address;
+        // document.querySelector('.stdcity').innerHTML = per_details[i].city;
+        // document.querySelector('.stdstate').innerHTML = per_details[i].state;
+    }
+}

@@ -16,7 +16,6 @@ const firebaseConfig = {
   const database=firebase.database().ref("databasestore");
   const database1=firebase.database().ref("databasestore1");
 
-
 //login details array storage
 let loginDetails = [];
 let value1;
@@ -55,6 +54,7 @@ document.querySelector('.signinselection').addEventListener('click', function(){
         let emailin = document.querySelector('.stdemail').value;
         let passwordin = document.querySelector('.stdpassword').value;
         let regnoin = document.querySelector('.stdregno').value;
+        localStorage.setItem('regno',regnoin);
         let count = 0;
         let count1 = 0;
         let count2 = 0;
@@ -123,7 +123,6 @@ document.querySelector('.signupselection').addEventListener('click', function(){
                     email:emailup,
                     password:passwordup
               });
-              localStorage.setItem("regno",regnoup);
               alert("Successfully Registered");
             }
         }
