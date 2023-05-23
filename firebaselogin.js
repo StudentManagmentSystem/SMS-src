@@ -1,6 +1,5 @@
 'use strict'
-//yashwanthinicse2020@ksrce.ac.in
-//vigneshscse2020@ksrce.ac.in
+
 const firebaseConfig = {
     apiKey: "AIzaSyBgUx-_SqBtZrSo_RWxnvSf23hT-wPtdYY",
     authDomain: "studentmanagementsystem-fb890.firebaseapp.com",
@@ -29,7 +28,6 @@ database.on("value",function(snapshot){
   })
 console.log(loginDetails);
 
-
 //personal detail array storage
 let per_details = [];
 let value;
@@ -52,6 +50,7 @@ document.querySelector('.signinselection').addEventListener('click', function(){
 
     document.querySelector('.std-signin').addEventListener('click', function(){
         let emailin = document.querySelector('.stdemail').value;
+        localStorage.setItem('email',emailin);
         let passwordin = document.querySelector('.stdpassword').value;
         let regnoin = document.querySelector('.stdregno').value;
         localStorage.setItem('regno',regnoin);

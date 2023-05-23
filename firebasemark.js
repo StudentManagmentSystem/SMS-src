@@ -41,12 +41,25 @@ databasesemester.on("value",function(snapshot){
   });
 });
 console.log(semesterDetails);
-  
+let regno = localStorage.getItem('regno');
+
   document.querySelector('.markbtn').addEventListener('click', function(){
+    var push = databasemark.push();
+    push.set({
+      regno:regno,
+    });
     let semester = document.querySelector('.sem').value;
     for(let i = 0;i<semesterDetails.length;i++){
         if(semesterDetails[i].sem === semester){
             document.querySelector('.semlabel').innerHTML = `Enter the grade of ${semesterDetails[i].subCode}`;
+            document.querySelector('.markbtn').addEventListener('click', function(){
+              let mark = document.querySelector('.sem').value;
+              let subcode = semesterDetails[i].subCode;
+              var ref = databasemark.ref(regno);
+              ref.update({
+                subcode : mark
+              });
+            })
         }
     }
   })

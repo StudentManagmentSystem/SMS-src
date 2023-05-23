@@ -15,7 +15,7 @@ const firebaseConfig = {
   const database=firebase.database().ref("databasestore");
   const database1=firebase.database().ref("databasestore1");
 
-  //login details array storage
+//login details array storage
 let loginDetails = [];
 let value1;
 database.on("value",function(snapshot){
@@ -43,20 +43,6 @@ database1.on("value",function(snapshot){
 console.log(per_details);
 
 let regno = localStorage.getItem('regno');
+let email1 = localStorage.getItem('email');
+console.log(email1);
 console.log(regno);
-// console.log(typeof per_details[0].regno);
-// console.log(typeof regno);
-  //  console.log(per_details.length); 
-console.log(per_details[0].personal_detail.regno);
-for(let i = 0;i<per_details.length;i++){
-  console.log(per_details);
-    if(per_details[i].personal_detail.regno == regno){
-      console.log(true);
-        document.querySelector('.stdname').innerHTML = per_details[i].regno;
-        document.querySelector('.stdemail').innerHTML = per_details[i].email;
-        // document.querySelector('.stdphno').innerHTML = per_details[i].phno;
-        // document.querySelector('.stdaddress').innerHTML = per_details[i].address;
-        // document.querySelector('.stdcity').innerHTML = per_details[i].city;
-        // document.querySelector('.stdstate').innerHTML = per_details[i].state;
-    }
-}
